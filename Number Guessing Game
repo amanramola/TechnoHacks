@@ -1,0 +1,30 @@
+#include<iostream>
+#include<cstdlib>
+using namespace std;
+int main(){
+	int n,g,count=0;
+	n=rand()%100+1;
+	cout<<"****Guess The Number****"<<endl<<endl;
+	do{
+		cout<<"Enter a guess(1 to 100):";
+		cin>>g;
+		count++;
+		if(g>n){
+			cout<<"Too High!"<<endl;
+		}else if(g<n){
+			cout<<"Too Low!"<<endl;
+		}else{
+			cout<<"Correct :-)"<<endl;
+			cout<<"Total Tries:"<<count;
+		}
+	}
+	while(g!=n);
+	char ch;
+	cout<<"\n\nPlay Again(Y/N):";
+	cin>>ch;
+	if(ch=='Y'){
+		main();
+	}else{
+		cout<<"Turned OFF (=_=)";
+	}
+}
