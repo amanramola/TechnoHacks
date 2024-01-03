@@ -1,0 +1,58 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+int bintodec(int n){
+	int dec=0,i=0;
+	while(n!=0){
+		if(n%10==1){
+			dec=dec+pow(2,i);
+		}
+		i++;
+		n=n/10;
+	}
+	return dec;
+}
+int dectobin(int n){
+	int bin=0,digit=0,i=0;
+	while(n!=0){
+		digit=n&1;
+		bin=(digit*pow(10,i))+bin;
+		n=n>>1;
+		i++;
+	}
+	return bin;
+}
+int main(){
+	int n,ch;
+	cout<<"*****Binary - Decimal Converter*****"<<endl;
+	cout<<"Enter 1. for Binary -> decimal"<<endl;
+	cout<<"Enter 2. for Decimal -> Binary"<<endl;
+	cin>>ch;
+	char r;
+	switch(ch){
+		case 1:
+			cout<<"Enter Binary no:";
+			cin>>n;
+			cout<<endl<<n<<" to Decimal:"<<bintodec(n)<<endl<<endl;
+			cout<<"Wanna Use again(Y/N):";
+			cin>>r;
+			if(r=='Y')
+				main();
+			else
+				break;
+			break;
+		case 2:
+			cout<<"Enter Decimal no:";
+			cin>>n;
+			cout<<endl<<n<<" to Binary:"<<dectobin(n)<<endl<<endl;
+			cout<<"Wanna Use again(Y/N):";
+			cin>>r;
+			if(r=='Y')
+				main();
+			else
+				break;
+			break;
+		default:
+			cout<<"Invalid";
+	}
+}
